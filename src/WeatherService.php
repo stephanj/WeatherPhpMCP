@@ -65,7 +65,7 @@ class WeatherService
     /**
      * Geocode a location name to coordinates.
      */
-    private function geocode(string $location): array
+    protected function geocode(string $location): array
     {
         $params = http_build_query([
             'name' => $location,
@@ -88,7 +88,7 @@ class WeatherService
     /**
      * Perform an HTTP GET request.
      */
-    private function httpGet(string $url): string
+    protected function httpGet(string $url): string
     {
         $context = stream_context_create([
             'http' => [
