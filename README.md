@@ -13,6 +13,19 @@ A PHP implementation of a Model Context Protocol (MCP) server that provides weat
 php composer.phar install
 ```
 
+## Testing
+
+Run the test suite with PHPUnit:
+
+```bash
+php phpunit.phar
+```
+
+The project includes tests for both core components:
+
+- **McpServerTest** - Tests MCP protocol handling including tool registration, invocation, JSON-RPC responses, and error handling
+- **WeatherServiceTest** - Tests weather data processing including compass direction conversion, weather code mapping, and API response handling (uses mocks to avoid HTTP requests)
+
 ## Usage
 
 ### Running the Server
@@ -124,9 +137,14 @@ Get a weather forecast for a location.
 ├── composer.json            # Project dependencies
 ├── server.php               # Main entry point
 ├── mcp-servers-config.json  # MCP server configuration for clients
+├── phpunit.xml              # PHPUnit configuration
+├── phpunit.phar             # PHPUnit executable
 ├── src/
 │   ├── McpServer.php        # MCP protocol implementation
 │   └── WeatherService.php   # Weather API client
+├── tests/
+│   ├── McpServerTest.php    # MCP server tests
+│   └── WeatherServiceTest.php # Weather service tests
 └── README.md
 ```
 

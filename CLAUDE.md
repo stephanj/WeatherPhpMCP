@@ -19,6 +19,9 @@ php composer.phar install
 
 # Run the MCP server
 php server.php
+
+# Run tests
+php phpunit.phar
 ```
 
 ## Architecture
@@ -28,6 +31,13 @@ The server implements MCP (Model Context Protocol) using JSON-RPC 2.0 over stdio
 - **server.php** - Entry point that bootstraps the server and registers tools
 - **src/McpServer.php** - Generic MCP protocol handler (JSON-RPC dispatcher, tool registration, request/response lifecycle)
 - **src/WeatherService.php** - Weather API client using Open-Meteo's geocoding and forecast endpoints
+
+### Testing
+
+Tests are in the `tests/` directory using PHPUnit:
+
+- **McpServerTest** - Tests MCP protocol handling (tool registration, invocation, JSON-RPC responses, error handling)
+- **WeatherServiceTest** - Tests weather data processing (compass direction conversion, weather code mapping, API response handling with mocks)
 
 ### Adding New Tools
 
