@@ -53,26 +53,15 @@ Add to your `claude_desktop_config.json`:
 
 ### Claude Code Configuration
 
-To use this MCP server with [Claude Code](https://docs.anthropic.com/en/docs/claude-code), add the server to your project's `.mcp.json` file:
+This project includes a `.mcp.json` file that automatically configures the weather MCP server when you open the project in [Claude Code](https://docs.anthropic.com/en/docs/claude-code). Simply clone the repository and open it with Claude Code - the weather tools will be available immediately.
 
-```json
-{
-  "mcpServers": {
-    "weather": {
-      "command": "php",
-      "args": ["/full/path/to/server.php"]
-    }
-  }
-}
-```
-
-Alternatively, you can add it using the Claude Code CLI:
+To add this server globally (available in all projects), use the Claude Code CLI:
 
 ```bash
 claude mcp add weather php /full/path/to/server.php
 ```
 
-Or add it to your user-level configuration at `~/.claude/settings.json` for global availability:
+Or add it to your user-level configuration at `~/.claude/settings.json`:
 
 ```json
 {
@@ -168,6 +157,7 @@ Get a weather forecast for a location.
 ## Project Structure
 
 ```
+├── .mcp.json                # Claude Code MCP configuration (auto-loads server)
 ├── composer.json            # Project dependencies
 ├── server.php               # Main entry point
 ├── mcp-servers-config.json  # MCP server configuration for clients
