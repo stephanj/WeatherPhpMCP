@@ -51,6 +51,40 @@ Add to your `claude_desktop_config.json`:
 }
 ```
 
+### Claude Code Configuration
+
+To use this MCP server with [Claude Code](https://docs.anthropic.com/en/docs/claude-code), add the server to your project's `.mcp.json` file:
+
+```json
+{
+  "mcpServers": {
+    "weather": {
+      "command": "php",
+      "args": ["/full/path/to/server.php"]
+    }
+  }
+}
+```
+
+Alternatively, you can add it using the Claude Code CLI:
+
+```bash
+claude mcp add weather php /full/path/to/server.php
+```
+
+Or add it to your user-level configuration at `~/.claude/settings.json` for global availability:
+
+```json
+{
+  "mcpServers": {
+    "weather": {
+      "command": "php",
+      "args": ["/full/path/to/server.php"]
+    }
+  }
+}
+```
+
 ### DevoxxGenie (IntelliJ IDEA) Configuration
 
 To use this MCP server with [DevoxxGenie](https://github.com/devoxx/DevoxxGenieIDEAPlugin) in IntelliJ IDEA or other JetBrains IDEs:
